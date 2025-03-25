@@ -1,7 +1,7 @@
 import Links from '@/components/links'
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTrigger } from '@/components/ui/sheet';
-import { SignIn, SignInButton } from '@clerk/nextjs';
+import { SignIn } from '@clerk/nextjs';
 import Image from 'next/image'
 import React, { ReactNode } from 'react'
 
