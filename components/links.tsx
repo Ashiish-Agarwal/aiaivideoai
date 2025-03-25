@@ -1,11 +1,12 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { UserButton, useUser } from "@clerk/nextjs";
+import { SignedIn, SignedOut, UserButton, useUser } from "@clerk/nextjs";
 import { Separator } from "@radix-ui/react-separator";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Button } from "./ui/button";
 
 const Links = () => {
   const pathname = usePathname()
@@ -63,10 +64,12 @@ const Links = () => {
 
   return (
     <div className="w-full flex flex-col gap-4 py-4 text-center pl-2">
+      <SignedIn>
+
       {links.map((elem, index) => (
         <div
-          key={index}
-          className={cn(
+        key={index}
+        className={cn(
             "w-full rounded-md p-2 transition-colors",
             pathname === elem.route 
               ? "bg-purple-500 text-white" 
@@ -92,6 +95,12 @@ const Links = () => {
         <UserButton signInUrl="/" />
         <p className="font-medium">{name}</p>
       </div>
+            </SignedIn>
+            <SignedOut>
+            <Button asChild className="button bg-purple-gradient bg-cover">
+              <Link href="/sign-in">Login</Link>
+            </Button>
+            </SignedOut>
     </div>
   );
 }

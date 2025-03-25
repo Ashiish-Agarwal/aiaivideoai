@@ -1,12 +1,18 @@
 import Links from '@/components/links'
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTrigger } from '@/components/ui/sheet';
+import { SignIn, SignInButton } from '@clerk/nextjs';
 import Image from 'next/image'
 import React, { ReactNode } from 'react'
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="min-h-screen w-full overflow-hidden">
+
+    <div className="min-h-screen w-full overflow-hidden relative">
+      <div className='max-h-screen mx-auto w-screen flex items-center justify-center absolute top-40  '>
+
+      <SignIn></SignIn>
+      </div>
       <div className="grid grid-cols-[320px_1fr] min-h-screen">
         <div className="max-h-screen overflow-y-auto sticky top-0 hidden md:block border-r-2 bg-zinc-900/10">
           <Image
